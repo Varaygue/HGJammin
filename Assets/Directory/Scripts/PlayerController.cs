@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(Rigidbody))]
-[RequireComponent (typeof(SpriteRenderer))]
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
-    SpriteRenderer sr;
+    public SpriteRenderer sr;
 
     public LayerMask terrainLayer;
 
@@ -17,7 +16,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        sr = GetComponent<SpriteRenderer>();
     }
 
    
