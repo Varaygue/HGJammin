@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
   progression: 0
-  batteries: 0
+  batteries: 3
