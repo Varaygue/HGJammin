@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player_SO : ScriptableObject
 {
     public float progression;
-    public float batteries;
+    public int batteries;
 
 
 
