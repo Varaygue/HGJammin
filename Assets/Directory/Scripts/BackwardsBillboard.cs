@@ -6,26 +6,47 @@ public class BackwardsBillboard : MonoBehaviour
 {
     private Camera mainCamera;
 
+    public Transform player;
+    private SpriteRenderer sr;
     void Start()
     {
         mainCamera = Camera.main;
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        
-            if (mainCamera != null)
-            {
-            // Calculate the direction to the camera
-            Vector3 lookDir = mainCamera.transform.position - transform.position;
 
-            // Calculate the rotation needed to look at the camera
-            Quaternion targetRotation = Quaternion.LookRotation(-lookDir, Vector3.up);
-
-            // Apply the rotation to the object
-            transform.rotation = targetRotation;
+        if (mainCamera != null)
+        {
+            switchBillboard();
         }
         
     }
+
+    void switchBillboard()
+    {
+
+        if(transform.position.z < player.position.z)
+        {
+            transform.LookAt(Camera.main.transform, Vector3.up);
+            if(sr.flipX == true)
+            {
+                sr.flipX = false;
+            }
+        }
+        else
+        {
+            Vector3 lookDir = mainCamera.transform.position - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(-lookDir, Vector3.up);
+            transform.rotation = targetRotation;
+
+            if (sr.flipX == false)
+            {
+                sr.flipX = true;
+            }
+        }
+    }
+    
 }
 
