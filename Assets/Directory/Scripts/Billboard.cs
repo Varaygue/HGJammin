@@ -4,7 +4,7 @@ public class Billboard : MonoBehaviour
 {
     void Update()
     {
-        Transform camTransform = Camera.main.transform;
-        transform.forward = camTransform.forward;
+        // Face the camera
+        transform.LookAt(Camera.main.transform, Vector3.up);
     }
 }
