@@ -21,18 +21,6 @@ public class PlayerController : MonoBehaviour
    
     void LateUpdate()
     {
-        RaycastHit hit;
-        Vector3 castPos = transform.position;
-        if (Physics.Raycast(castPos, -transform.up, out hit, Mathf.Infinity, terrainLayer))
-        {
-            if (hit.collider != null)
-            {
-                Vector3 movePos = transform.position;
-                movePos.y = hit.point.y + groundDist;
-                transform.position = movePos;
-            }
-        }
-
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
        
@@ -48,5 +36,20 @@ public class PlayerController : MonoBehaviour
             sr.flipX = false;
         }
         
+    }
+
+    void groundPosition()
+    {
+        RaycastHit hit;
+        Vector3 castPos = transform.position;
+        if (Physics.Raycast(castPos, -transform.up, out hit, Mathf.Infinity, terrainLayer))
+        {
+            if (hit.collider != null)
+            {
+                Vector3 movePos = transform.position;
+                movePos.y = hit.point.y + groundDist;
+                transform.position = movePos;
+            }
+        }
     }
 }

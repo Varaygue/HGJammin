@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.16037738, g: 0, b: 0, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -366,8 +366,8 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 443.34
+  m_Color: {r: 0.9245283, g: 0.7601156, b: 0.6497864, a: 1}
+  m_Intensity: 137.01
   m_Range: 21.2
   m_SpotAngle: 74.2
   m_InnerSpotAngle: 21.80208
@@ -1794,7 +1794,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363264342}
-  m_LocalRotation: {x: 0.27536342, y: -1.6390098e-15, z: 9.010891e-17, w: 0.96134025}
+  m_LocalRotation: {x: 0.2753634, y: 0.000000028650174, z: -0.000000008206469, w: 0.96134025}
   m_LocalPosition: {x: -2.1, y: 13.23, z: -32.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1881,7 +1881,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375738287}
-  m_LocalRotation: {x: 0.27536342, y: -1.6390098e-15, z: 9.010891e-17, w: 0.96134025}
+  m_LocalRotation: {x: 0.2753634, y: 0.000000028650174, z: -0.000000008206469, w: 0.96134025}
   m_LocalPosition: {x: -2.1, y: 13.23, z: -32.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2061,7 +2061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 10.99, z: -17.61}
-  m_XDamping: 0.1
+  m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0.1
   m_AngularDampingMode: 0
@@ -3110,6 +3110,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3184952927496945918, guid: f35470c51c1dca5498e04f21b6505453, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3184952928284052144, guid: f35470c51c1dca5498e04f21b6505453, type: 3}
       propertyPath: player
       value: 
