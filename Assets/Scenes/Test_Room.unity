@@ -1685,13 +1685,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 738808308}
   move: {fileID: 6074548088577282571, guid: 2b85b3324e8c943408c0d09c56aaa829, type: 3}
+  run: {fileID: 0}
   terrainLayer:
     serializedVersion: 2
     m_Bits: 64
   moveDir: {x: 0, y: 0, z: 0}
   speed: 10
-  groundDist: 1.65
   gravityMultiplier: 0.5
+  isSprinting: 0
+  sprintSpeed: 20
 --- !u!114 &1305490409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1718,7 +1720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 2b85b3324e8c943408c0d09c56aaa829, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -1729,7 +1731,27 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 411be269-eb34-403c-bf34-525b51af0e42
+    m_ActionName: PlayerController/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1305490408}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Sprint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 11132f51-4526-4894-b6b7-3628020c215e
+    m_ActionName: PlayerController/Run[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerController
@@ -2108,7 +2130,7 @@ MonoBehaviour:
   m_FollowOffset: {x: 0, y: 10.99, z: -17.61}
   m_XDamping: 0
   m_YDamping: 0
-  m_ZDamping: 0.1
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
