@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 [RequireComponent (typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
     public SpriteRenderer sr;
+
+    public InputActionReference move;
 
     public LayerMask terrainLayer;
 
