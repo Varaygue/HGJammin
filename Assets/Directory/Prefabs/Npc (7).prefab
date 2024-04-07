@@ -13,13 +13,13 @@ GameObject:
   - component: {fileID: 3184952927496945914}
   - component: {fileID: 3184952927496945917}
   - component: {fileID: 3184952927496945916}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3184952927496945919
 Transform:
   m_ObjectHideFlags: 0

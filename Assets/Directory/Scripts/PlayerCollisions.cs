@@ -8,7 +8,10 @@ public class PlayerCollisions : MonoBehaviour
 
     [SerializeField] Player_SO PlayerSO;
 
+
+
     public static Action<int> batteryCollectedEvent;
+
 
     private void OnTriggerEnter(Collider other)
     {
