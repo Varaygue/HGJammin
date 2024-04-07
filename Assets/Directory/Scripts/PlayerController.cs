@@ -4,51 +4,74 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-[RequireComponent(typeof(Rigidbody))]
+
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody rb;
     public SpriteRenderer sr;
-
     public InputActionReference move;
-
     public LayerMask terrainLayer;
-    
-    Vector3 moveDir;
+    CharacterController characterController;
 
-    public float groundDist;
+    public Vector3 moveDir;
     public float speed;
+    public float groundDist;
+    
 
-    CharacterController cc;
+    private float gravity = -9.81f;
+    [SerializeField] float gravityMultiplier = 3.0f;
+    private float velocity;
+
+
     
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        cc = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterController>();
     }
 
    
     void Update()
     {
+
+        ApplyMovement();
+        ApplyFacingDirection();
+        
+    }
+
+    void ApplyMovement()
+    {
         moveDir = move.action.ReadValue<Vector2>();
 
-        //moveDir = new Vector3(moveDir.x, 0, moveDir.y).normalized;
-        //cc.Move(moveDir * speed * Time.deltaTime);
-        
-        rb.velocity = new Vector3(moveDir.x * speed, rb.velocity.y, moveDir.z * speed);
-        
+        moveDir = new Vector3(moveDir.x, 0, moveDir.y).normalized;
+        ApplyGravity(); // needs to be here
+        characterController.Move(moveDir * speed * Time.deltaTime);
+    }
 
+    void ApplyFacingDirection()
+    {
         if (moveDir.x != 0 && moveDir.x < 0)
         {
             sr.flipX = true;
-        }  
+        }
         else if (moveDir.x != 0 && moveDir.x > 0)
         {
             sr.flipX = false;
         }
-        
     }
 
+    void ApplyGravity()
+    {
+        if (characterController.isGrounded && velocity < 0.0f)
+        {
+            velocity = -1.0f;
+        }
+        else
+        {
+            velocity += gravity * gravityMultiplier * Time.deltaTime;
+        }
+
+        moveDir.y = velocity;
+    }
+    
     void groundPosition()
     {
         RaycastHit hit;
