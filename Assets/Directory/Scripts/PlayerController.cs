@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
@@ -31,10 +31,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         moveDir = move.action.ReadValue<Vector2>();
-       
-        moveDir = new Vector3(moveDir.x, 0, moveDir.y).normalized;
-        cc.Move(moveDir * speed * Time.deltaTime);
+
+        //moveDir = new Vector3(moveDir.x, 0, moveDir.y).normalized;
+        //cc.Move(moveDir * speed * Time.deltaTime);
         
+        rb.velocity = new Vector3(moveDir.x * speed, rb.velocity.y, moveDir.z * speed);
+        
+
         if (moveDir.x != 0 && moveDir.x < 0)
         {
             sr.flipX = true;
