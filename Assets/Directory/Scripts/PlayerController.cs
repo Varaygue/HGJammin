@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-[RequireComponent (typeof(Rigidbody))]
+
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
@@ -13,29 +13,33 @@ public class PlayerController : MonoBehaviour
     public InputActionReference move;
 
     public LayerMask terrainLayer;
+    
+    Vector3 moveDir;
 
     public float groundDist;
     public float speed;
+
+    CharacterController cc;
     
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cc = GetComponent<CharacterController>();
     }
 
    
-    void LateUpdate()
+    void Update()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        moveDir = move.action.ReadValue<Vector2>();
        
-        Vector3 moveDir = new Vector3(x, 0, y).normalized;
-        rb.velocity = moveDir * speed;
+        moveDir = new Vector3(moveDir.x, 0, moveDir.y).normalized;
+        cc.Move(moveDir * speed * Time.deltaTime);
         
-        if (x != 0 && x < 0)
+        if (moveDir.x != 0 && moveDir.x < 0)
         {
             sr.flipX = true;
         }  
-        else if (x != 0 && x > 0)
+        else if (moveDir.x != 0 && moveDir.x > 0)
         {
             sr.flipX = false;
         }
