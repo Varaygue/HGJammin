@@ -10,55 +10,66 @@ public class Door : MonoBehaviour, IInteractable
     Vector3 doorToObject;
     float dotProduct;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
-        {
-            Debug.Log("nothing");
-            doorNormal = transform.forward;
-            doorToObject = other.transform.position - transform.position;
+    public bool isOpen;
 
-            dotProduct = Vector3.Dot(doorNormal, doorToObject);
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "Player")
+    //    {
+    //        doorNormal = transform.forward;
+    //        doorToObject = other.transform.position - transform.position;
 
-            if (dotProduct > 0)
-            {
-                doorTransform.Rotate(0, 90, 0);
-            }
-            else if (dotProduct < 0)
-            {
-                doorTransform.Rotate(0, -90, 0);
-            }
-            else
-            {
-               
-            }
-        }
-        
-    }
+    //        dotProduct = Vector3.Dot(doorNormal, doorToObject);
+    //    }
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.tag == "Player")
-        {
-            if (dotProduct > 0)
-            {
-                doorTransform.Rotate(0, -90, 0);
-            }
-            else if (dotProduct < 0)
-            {
-                doorTransform.Rotate(0, 90, 0);
-            }
-            else
-            {
-                
-            }
-        }
-        
-    }
+
+        //private void OnTriggerExit(Collider other)
+        //{
+        //    if(other.tag == "Player")
+        //    {
+        //        if (dotProduct > 0)
+        //        {
+        //            doorTransform.Rotate(0, -90, 0);
+        //        }
+        //        else if (dotProduct < 0)
+        //        {
+        //            doorTransform.Rotate(0, 90, 0);
+        //        }
+        //        else
+        //        {
+
+        //        }
+        //    }
+
+        //}
 
     public void Interact()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("open");
+        if (!isOpen)
+        {
+            if (dotProduct > 0)
+            {
+                doorTransform.Rotate(0, 90, 0);
+            }
+            else
+            {
+                doorTransform.Rotate(0, -90, 0);
+            }
+        }
+        else
+        {
+            if (dotProduct > 0)
+            {
+                doorTransform.Rotate(0, -90, 0);
+            }
+            else
+            {
+                doorTransform.Rotate(0, 90, 0);
+            }
+        }
+
     }
 
 
