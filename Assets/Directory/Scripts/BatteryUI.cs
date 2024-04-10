@@ -14,12 +14,12 @@ public class BatteryUI : MonoBehaviour
 
     private void OnEnable()
     {
-        Interactor.batteryCollectedEvent += UpdateText;
+        Battery.batteryCollectedEvent += UpdateText;
     }
 
     private void OnDisable()
     {
-        Interactor.batteryCollectedEvent -= UpdateText;
+        Battery.batteryCollectedEvent -= UpdateText;
     }
 
     void UpdateText(int num)

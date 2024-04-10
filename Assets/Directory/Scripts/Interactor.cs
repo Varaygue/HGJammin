@@ -10,7 +10,7 @@ public class Interactor : MonoBehaviour
 
 
 
-    public static Action<int> batteryCollectedEvent;
+    
 
     public LayerMask interactionLayer;
 
@@ -23,30 +23,36 @@ public class Interactor : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Interactable"))
         {
             interactable = other.gameObject.GetComponent<IInteractable>();
-            Debug.Log("yes");
         }
-        else
-        {
-            
-            Debug.Log(other.gameObject.layer);
-        }
+    }
 
-
+    private void OnTriggerExit(Collider other)
+    {
+        interactable = null;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            interactable.Interact();
+            interactable?.Interact();
         }
     }
 
+    private void OnEnable()
+    {
+        Battery.batteryCollectedEvent += RemoveInteractable;
+    }
 
-    //if (other.tag == "Battery")
-    //{
-    //    PlayerSO.batteries += 1;
-    //    batteryCollectedEvent?.Invoke(PlayerSO.batteries);
-    //    Destroy(other.gameObject);
-    //}
+    private void OnDisable()
+    {
+        Battery.batteryCollectedEvent -= RemoveInteractable;
+    }
+
+    void RemoveInteractable(int x)
+    {
+        interactable = null;
+    }
+
+   
 }
