@@ -10,8 +10,8 @@ public class Battery : MonoBehaviour, IInteractable
     public static Action<int> batteryCollectedEvent;
     public void Interact()
     {
-            PlayerSO.batteries += 1;
-            batteryCollectedEvent?.Invoke(PlayerSO.batteries);
-            Destroy(gameObject);
+        PlayerSO.batteries += 1;
+        batteryCollectedEvent?.Invoke(PlayerSO.batteries);
+        Destroy(gameObject);
     }
 }
