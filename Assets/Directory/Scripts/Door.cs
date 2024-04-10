@@ -12,41 +12,44 @@ public class Door : MonoBehaviour, IInteractable
 
     public bool isOpen;
 
-    //private void OnTriggerEnter(Collider other)
+    Transform playerTransform;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerTransform = other.gameObject.transform;
+        }
+    }
+
+
+    //private void OnTriggerExit(Collider other)
     //{
-    //    if (other.tag == "Player")
+    //    if(other.tag == "Player")
     //    {
-    //        doorNormal = transform.forward;
-    //        doorToObject = other.transform.position - transform.position;
+    //        if (dotProduct > 0)
+    //        {
+    //            doorTransform.Rotate(0, -90, 0);
+    //        }
+    //        else if (dotProduct < 0)
+    //        {
+    //            doorTransform.Rotate(0, 90, 0);
+    //        }
+    //        else
+    //        {
 
-    //        dotProduct = Vector3.Dot(doorNormal, doorToObject);
+    //        }
     //    }
+
     //}
-
-
-        //private void OnTriggerExit(Collider other)
-        //{
-        //    if(other.tag == "Player")
-        //    {
-        //        if (dotProduct > 0)
-        //        {
-        //            doorTransform.Rotate(0, -90, 0);
-        //        }
-        //        else if (dotProduct < 0)
-        //        {
-        //            doorTransform.Rotate(0, 90, 0);
-        //        }
-        //        else
-        //        {
-
-        //        }
-        //    }
-
-        //}
 
     public void Interact()
     {
-        Debug.Log("open");
+        doorNormal = transform.forward;
+        doorToObject = playerTransform.position - transform.position;
+
+        dotProduct = Vector3.Dot(doorNormal, doorToObject);
+
         if (!isOpen)
         {
             if (dotProduct > 0)
@@ -57,6 +60,7 @@ public class Door : MonoBehaviour, IInteractable
             {
                 doorTransform.Rotate(0, -90, 0);
             }
+            isOpen = true;
         }
         else
         {
@@ -68,6 +72,7 @@ public class Door : MonoBehaviour, IInteractable
             {
                 doorTransform.Rotate(0, 90, 0);
             }
+            isOpen = false;
         }
 
     }
