@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using UnityEngine.InputSystem;
 public class PlayerCollisions : MonoBehaviour
 {
 
@@ -12,6 +12,7 @@ public class PlayerCollisions : MonoBehaviour
 
     public static Action<int> batteryCollectedEvent;
 
+   
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +21,21 @@ public class PlayerCollisions : MonoBehaviour
             PlayerSO.batteries += 1;
             batteryCollectedEvent?.Invoke(PlayerSO.batteries);
             Destroy(other.gameObject);
+        }
+
+        
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
+    }
+
+    void Interatable(InputAction.CallbackContext context)
+    {
+        if (context.started || context.performed)
+        {
+
         }
     }
 }

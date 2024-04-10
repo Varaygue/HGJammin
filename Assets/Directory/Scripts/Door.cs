@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : MonoBehaviour, IInteractable
 {
     public Transform doorTransform;
 
@@ -50,10 +50,15 @@ public class Door : MonoBehaviour
             }
             else
             {
-
+                
             }
         }
         
+    }
+
+    public void Interact()
+    {
+        throw new System.NotImplementedException();
     }
 
 
