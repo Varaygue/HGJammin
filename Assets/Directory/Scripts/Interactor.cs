@@ -29,6 +29,7 @@ public class Interactor : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         interactable = null;
+        Debug.Log("yo");
     }
 
     private void Update()
