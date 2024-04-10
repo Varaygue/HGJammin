@@ -3,23 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class PlayerCollisions : MonoBehaviour
+public class Battery : MonoBehaviour, IInteractable
 {
-
-    [SerializeField] Player_SO PlayerSO;
-
-
+    public Player_SO PlayerSO;
 
     public static Action<int> batteryCollectedEvent;
-
-
-    private void OnTriggerEnter(Collider other)
+    public void Interact()
     {
-        if (other.tag == "Battery")
-        {
             PlayerSO.batteries += 1;
             batteryCollectedEvent?.Invoke(PlayerSO.batteries);
-            Destroy(other.gameObject);
-        }
+            Destroy(gameObject);
     }
 }

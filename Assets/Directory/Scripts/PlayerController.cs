@@ -1,43 +1,92 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-[RequireComponent (typeof(Rigidbody))]
+
+
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody rb;
     public SpriteRenderer sr;
-
+    public InputActionReference move;
+    public InputActionReference run;
     public LayerMask terrainLayer;
+    CharacterController characterController;
 
-    public float groundDist;
+    public Vector3 moveDir;
     public float speed;
+    private float groundDist;
+    
+    private float gravity = -9.81f;
+    [SerializeField] float gravityMultiplier = 3.0f;
+    private float velocity;
+
+    public bool isSprinting;
+    public float sprintSpeed;
+
     
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
     }
 
    
-    void LateUpdate()
+    void Update()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-       
-        Vector3 moveDir = new Vector3(x, 0, y).normalized;
-        rb.velocity = moveDir * speed;
-        
-        if (x != 0 && x < 0)
-        {
-            sr.flipX = true;
-        }  
-        else if (x != 0 && x > 0)
-        {
-            sr.flipX = false;
-        }
+
+        ApplyMovement();
+        ApplyFacingDirection();
         
     }
 
+    public void Sprint(InputAction.CallbackContext context)
+    {
+        isSprinting = context.started || context.performed;
+    }
+
+    void ApplyMovement()
+    {
+        moveDir = move.action.ReadValue<Vector2>();
+        
+        if(isSprinting)
+        {
+            moveDir = new Vector3(moveDir.x * sprintSpeed, 0, moveDir.y * sprintSpeed);
+        }
+        else
+        {
+            moveDir = new Vector3(moveDir.x * speed, 0, moveDir.y * speed);
+        }
+        
+        ApplyGravity(); // needs to be here
+        characterController.Move(moveDir * Time.deltaTime);
+    }
+
+    void ApplyFacingDirection()
+    {
+        if (moveDir.x != 0 && moveDir.x < 0)
+        {
+            sr.flipX = true;
+        }
+        else if (moveDir.x != 0 && moveDir.x > 0)
+        {
+            sr.flipX = false;
+        }
+    }
+
+    void ApplyGravity()
+    {
+        if (characterController.isGrounded && velocity < 0.0f)
+        {
+            velocity = -1.0f;
+        }
+        else
+        {
+            velocity += gravity * gravityMultiplier * Time.deltaTime;
+        }
+
+        moveDir.y = velocity;
+    }
+    
     void groundPosition()
     {
         RaycastHit hit;

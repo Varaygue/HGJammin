@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5564839360748772689}
   - component: {fileID: 5564839360748772690}
   - component: {fileID: 8474180628747668180}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5564839360798846568}
   - component: {fileID: 5564839360798846569}
-  m_Layer: 0
+  - component: {fileID: 1126916706}
+  m_Layer: 10
   m_Name: Battery
   m_TagString: Battery
   m_Icon: {fileID: 0}
@@ -144,3 +145,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1126916706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5564839360798846575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e046656e495d04dbdf80fa2b39a211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerSO: {fileID: 11400000, guid: de807dd54d75ff9409c0a7ca6750b7a3, type: 2}
