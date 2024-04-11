@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3184952927496945917}
   - component: {fileID: 3184952927496945916}
   m_Layer: 9
-  m_Name: Point Light
+  m_Name: LightAura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,8 +153,6 @@ GameObject:
   - component: {fileID: 3184952928284052147}
   - component: {fileID: 3184952928284052159}
   - component: {fileID: 3184952928284052158}
-  - component: {fileID: 3184952928284052145}
-  - component: {fileID: 3184952928284052144}
   - component: {fileID: 3955214658007272421}
   m_Layer: 0
   m_Name: Sprite
@@ -243,31 +241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c010c51fa65bfa489e83e142da591a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3184952928284052145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3184952928284052146}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56133c40d1aec3a4abb0a971f9522481, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3184952928284052144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3184952928284052146}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cefee22895e2a5745885c60d762f6322, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &3955214658007272421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3184952928895099460}
   m_Layer: 0
-  m_Name: Npc (7)
+  m_Name: Cult Member
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

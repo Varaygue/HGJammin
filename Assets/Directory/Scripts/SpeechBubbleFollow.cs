@@ -6,7 +6,9 @@ public class SpeechBubbleFollow : MonoBehaviour
 {
     public Transform target;
 
-    [SerializeField] float yPosition; 
+    [SerializeField] float xPosition;
+    [SerializeField] float yPosition;
+    [SerializeField] float zPosition;
     void Start()
     {
         
@@ -15,6 +17,6 @@ public class SpeechBubbleFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = target.position + new Vector3(0, yPosition, 0);
+        transform.position = target.position + new Vector3(xPosition, yPosition, zPosition);
     }
 }
