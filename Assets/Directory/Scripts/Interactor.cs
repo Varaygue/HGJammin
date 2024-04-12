@@ -5,12 +5,7 @@ using System;
 using UnityEngine.InputSystem;
 public class Interactor : MonoBehaviour
 {
-
     [SerializeField] Player_SO PlayerSO;
-
-
-
-    
 
     public LayerMask interactionLayer;
 

@@ -6,13 +6,13 @@ public class Door : MonoBehaviour, IInteractable
 {
     public Transform doorTransform;
 
-    Vector3 doorNormal;
-    Vector3 doorToObject;
-    float dotProduct;
+    //Vector3 doorNormal;
+    //Vector3 doorToObject;
+    //float dotProduct;
 
     public bool isOpen;
 
-    Transform playerTransform;
+    //Transform playerTransform;
 
     public void Interact()
     {

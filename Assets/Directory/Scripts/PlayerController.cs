@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 
 
@@ -9,9 +10,10 @@ public class PlayerController : MonoBehaviour
 {
     public SpriteRenderer sr;
     public InputActionReference move;
-    public InputActionReference run;
+    //public InputActionReference run;
     public LayerMask terrainLayer;
     CharacterController characterController;
+    [SerializeField] Player_SO player;
 
     public Vector3 moveDir;
     public float speed;
@@ -21,10 +23,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gravityMultiplier = 3.0f;
     private float velocity;
 
-    public bool isSprinting;
+    //public bool isSprinting;
     public float sprintSpeed;
 
-    
+    public static Action isSprintingEvent; 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -41,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     public void Sprint(InputAction.CallbackContext context)
     {
-        isSprinting = context.started || context.performed;
+        player.isSprinting = context.started || context.performed;
     }
 
 
@@ -49,9 +51,10 @@ public class PlayerController : MonoBehaviour
     {
         moveDir = move.action.ReadValue<Vector2>();
         
-        if(isSprinting)
+        if(player.isSprinting && player.stamina > 0 && moveDir != new Vector3(0,0,0))
         {
             moveDir = new Vector3(moveDir.x * sprintSpeed, 0, moveDir.y * sprintSpeed);
+            isSprintingEvent?.Invoke();
         }
         else
         {

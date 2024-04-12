@@ -7,7 +7,8 @@ public class Player_SO : ScriptableObject
 {
     public float health;
     public int batteries;
-    public float stamina;
+    public bool isSprinting;
+    public float stamina = 100;
 
 
 
@@ -16,6 +17,7 @@ public class Player_SO : ScriptableObject
         health = 100;
         Debug.Log(health);
         batteries = 0;
+        stamina = 100;
     }
     
 }

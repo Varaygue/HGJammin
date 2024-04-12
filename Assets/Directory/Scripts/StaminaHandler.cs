@@ -4,15 +4,38 @@ using UnityEngine;
 
 public class StaminaHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Player_SO player;
+
+    [SerializeField] float drainAmount;
+    [SerializeField] float recoverAmount;
+    
+    
+    private void OnEnable()
     {
-        
+        PlayerController.isSprintingEvent += DepleteStamina;
     }
 
-    // Update is called once per frame
+    private void OnDisable()
+    {
+        PlayerController.isSprintingEvent -= DepleteStamina;
+    }
+
+    
     void Update()
     {
-        
+        if(!player.isSprinting && player.stamina < 100)
+        {
+            RecoverStamina();
+        }
+    }
+
+    void DepleteStamina()
+    {
+        player.stamina -= drainAmount * Time.deltaTime;
+    }
+
+    void RecoverStamina()
+    {
+        player.stamina += recoverAmount * Time.deltaTime;
     }
 }

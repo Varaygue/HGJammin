@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1bc151da6f4f641a7af448bdb5da77, type: 3}
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  progression: 0
-  batteries: 3
+  health: 100
+  batteries: 0
+  stamina: 100
