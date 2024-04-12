@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 6602307618373651021}
   - component: {fileID: 6602307618373651018}
   m_Layer: 0
-  m_Name: RingLight
+  m_Name: LightAura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -736,7 +736,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6602307618534440245}
   - component: {fileID: 6602307618534440242}
-  - component: {fileID: 6602307618534440243}
   - component: {fileID: 6602307618534440240}
   m_Layer: 7
   m_Name: Character
@@ -812,18 +811,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6602307618534440243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6602307618534440244}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56133c40d1aec3a4abb0a971f9522481, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6602307618534440240
 MonoBehaviour:
   m_ObjectHideFlags: 0
