@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         isSprinting = context.started || context.performed;
     }
 
+
     void ApplyMovement()
     {
         moveDir = move.action.ReadValue<Vector2>();

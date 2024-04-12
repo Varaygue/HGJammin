@@ -5,15 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerSO", menuName = "SO/Player")]
 public class Player_SO : ScriptableObject
 {
-    public float Health;
+    public float health;
     public int batteries;
+    public float stamina;
 
 
 
     void OnEnable()
     {
-        Health = 100;
-        Debug.Log(Health);
+        health = 100;
+        Debug.Log(health);
         batteries = 0;
     }
     

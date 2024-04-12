@@ -10,7 +10,7 @@ public class DamagePlayer : MonoBehaviour, IDamager
 
     public void DoDamage()
     {
-        player.Health -= damageAmount;
-        Debug.Log(player.Health);
+        player.health -= damageAmount;
+        Debug.Log(player.health);
     }
 }
