@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 6602307616934780717}
   - component: {fileID: 6602307616934780714}
   - component: {fileID: 6602307616934780715}
+  - component: {fileID: 1310013300}
+  - component: {fileID: 1310013301}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -109,14 +111,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 6602307618534440242}
   move: {fileID: 6074548088577282571, guid: 2b85b3324e8c943408c0d09c56aaa829, type: 3}
-  run: {fileID: 0}
   terrainLayer:
     serializedVersion: 2
     m_Bits: 64
+  player: {fileID: 11400000, guid: de807dd54d75ff9409c0a7ca6750b7a3, type: 2}
   moveDir: {x: 0, y: 0, z: 0}
   speed: 10
   gravityMultiplier: 7
-  isSprinting: 0
   sprintSpeed: 20
 --- !u!143 &6602307616934780717
 CharacterController:
@@ -168,6 +169,33 @@ MonoBehaviour:
   interactionLayer:
     serializedVersion: 2
     m_Bits: 1024
+--- !u!114 &1310013300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602307616934780706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd139fb51f1cd1344bf3558095940bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1310013301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602307616934780706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55444713108309d4fb682395ef83b9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: de807dd54d75ff9409c0a7ca6750b7a3, type: 2}
+  drainAmount: 10
+  recoverAmount: 5
 --- !u!1 &6602307617417489167
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +651,7 @@ GameObject:
   - component: {fileID: 6602307618373651021}
   - component: {fileID: 6602307618373651018}
   m_Layer: 0
-  m_Name: RingLight
+  m_Name: LightAura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -736,7 +764,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6602307618534440245}
   - component: {fileID: 6602307618534440242}
-  - component: {fileID: 6602307618534440243}
   - component: {fileID: 6602307618534440240}
   m_Layer: 7
   m_Name: Character
@@ -812,18 +839,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6602307618534440243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6602307618534440244}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56133c40d1aec3a4abb0a971f9522481, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6602307618534440240
 MonoBehaviour:
   m_ObjectHideFlags: 0
