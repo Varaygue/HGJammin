@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public SpriteRenderer sr;
+    public SpriteRenderer[] sr;
     public InputActionReference move;
     public InputActionReference run;
     public LayerMask terrainLayer;
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        sr = GetComponentsInChildren<SpriteRenderer>();
     }
 
    
@@ -65,11 +66,19 @@ public class PlayerController : MonoBehaviour
     {
         if (moveDir.x != 0 && moveDir.x < 0)
         {
-            sr.flipX = true;
+            //sr.flipX = true;
+            foreach (SpriteRenderer spriteRenderer in sr)
+            {
+                spriteRenderer.flipX = true;
+            }
         }
         else if (moveDir.x != 0 && moveDir.x > 0)
         {
-            sr.flipX = false;
+            //sr.flipX = false;
+            foreach (SpriteRenderer spriteRenderer in sr)
+            {
+                spriteRenderer.flipX = false;
+            }
         }
     }
 
