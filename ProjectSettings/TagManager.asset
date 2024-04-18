@@ -46,3 +46,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Cultist
+    uniqueID: 2774953255
+    locked: 0
+  - name: player
+    uniqueID: 1962024129
+    locked: 0
