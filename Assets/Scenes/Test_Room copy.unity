@@ -1002,6 +1002,11 @@ Transform:
   m_Father: {fileID: 1231137765}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &787010222 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1893701861, guid: a7ef0af7c8f71f74a9e345b2ee34d3f5, type: 3}
+  m_PrefabInstance: {fileID: 6602307617795665094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &950497158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1463,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363264342}
-  m_LocalRotation: {x: 0.000000059604645, y: -0.0000000067067356, z: 0.000000004185521, w: 1}
+  m_LocalRotation: {x: 0.000000059604645, y: -0.000000005968464, z: 0.0000000037247831, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1546,7 +1551,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375738287}
-  m_LocalRotation: {x: 0.27536345, y: -0.000000007599992, z: 0.0000000021769193, w: 0.9613402}
+  m_LocalRotation: {x: 0.27536345, y: -0.000000006763395, z: 0.0000000019372872, w: 0.9613402}
   m_LocalPosition: {x: -4.9797325, y: 12.568, z: -30.193432}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2215,11 +2220,6 @@ Transform:
   m_Father: {fileID: 1231137765}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 40}
---- !u!95 &1893701861 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1893701861, guid: a7ef0af7c8f71f74a9e345b2ee34d3f5, type: 3}
-  m_PrefabInstance: {fileID: 6602307617795665094}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1947644760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2502,7 +2502,7 @@ PrefabInstance:
     - target: {fileID: 6602307616934780718, guid: a7ef0af7c8f71f74a9e345b2ee34d3f5, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 1893701861}
+      objectReference: {fileID: 787010222}
     - target: {fileID: 6602307616934780718, guid: a7ef0af7c8f71f74a9e345b2ee34d3f5, type: 3}
       propertyPath: moveDir.y
       value: -1
