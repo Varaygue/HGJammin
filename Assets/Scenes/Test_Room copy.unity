@@ -2376,10 +2376,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1310013301, guid: a7ef0af7c8f71f74a9e345b2ee34d3f5, type: 3}
-      propertyPath: drainAmount
-      value: 50
-      objectReference: {fileID: 0}
+    - target: {fileID: 1893701861, guid: a7ef0af7c8f71f74a9e345b2ee34d3f5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 374ded692ae8ba94ca1267d14b20361c, type: 2}
     - target: {fileID: 6602307616934780706, guid: a7ef0af7c8f71f74a9e345b2ee34d3f5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2426,10 +2426,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6602307616934780707, guid: a7ef0af7c8f71f74a9e345b2ee34d3f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602307618534440244, guid: a7ef0af7c8f71f74a9e345b2ee34d3f5, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
