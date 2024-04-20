@@ -38,7 +38,7 @@ public class AINav : MonoBehaviour
             Debug.DrawRay(gameObject.transform.position + rayPositionOffset, direction, Color.green);
             if(Physics.Raycast(ray, out hit))
             {
-               if(hit.collider.gameObject.CompareTag("Player"))
+               if(hit.collider.gameObject.CompareTag("Player") || hit.collider.gameObject.CompareTag("Light"))
                 {
                     seesPlayer = true;
                 }
