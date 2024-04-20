@@ -81,10 +81,12 @@ public class PlayerController : MonoBehaviour
         if(player.isSprinting && player.stamina > 0 && moveDir != new Vector3(0,0,0))
         {
             moveDir = new Vector3(moveDir.x * sprintSpeed, 0, moveDir.y * sprintSpeed);
+            animator.speed = 3;
             isSprintingEvent?.Invoke();
         }
         else
         {
+            animator.speed = 1;
             moveDir = new Vector3(moveDir.x * speed, 0, moveDir.y * speed);
         }
         
