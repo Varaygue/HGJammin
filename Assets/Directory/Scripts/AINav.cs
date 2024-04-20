@@ -10,7 +10,7 @@ public class AINav : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
 
-    bool seesPlayer;
+    public bool seesPlayer;
 
     [SerializeField] Vector3 rayPositionOffset;
     private void Awake()
