@@ -13,6 +13,8 @@ public class AINav : MonoBehaviour
     public bool seesPlayer;
 
     [SerializeField] Vector3 rayPositionOffset;
+
+    public LayerMask ignorLayer;
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -36,7 +38,7 @@ public class AINav : MonoBehaviour
             Ray ray = new Ray(gameObject.transform.position + rayPositionOffset, direction);
             RaycastHit hit;
             Debug.DrawRay(gameObject.transform.position + rayPositionOffset, direction, Color.green);
-            if(Physics.Raycast(ray, out hit))
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignorLayer))
             {
                if(hit.collider.gameObject.CompareTag("Player") || hit.collider.gameObject.CompareTag("Light"))
                 {

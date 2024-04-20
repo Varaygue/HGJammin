@@ -291,6 +291,51 @@ Transform:
   m_Father: {fileID: 1231137765}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &229067571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 229067572}
+  - component: {fileID: 229067573}
+  m_Layer: 12
+  m_Name: DetectionCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &229067572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229067571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1315489238}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &229067573
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229067571}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 13
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &237156480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,6 +1478,9 @@ MonoBehaviour:
   movePositionTransform: {fileID: 1305490405}
   seesPlayer: 0
   rayPositionOffset: {x: 0, y: 3.5, z: 0}
+  ignorLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!195 &1315489233
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1455,19 +1503,11 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!135 &1315489236
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &1315489238 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3184952928895099460, guid: f35470c51c1dca5498e04f21b6505453, type: 3}
+  m_PrefabInstance: {fileID: 547499243}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315489228}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 13.82
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1315489239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1548,7 +1588,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363264342}
-  m_LocalRotation: {x: -0.000000059604645, y: 0.000000005968469, z: -0.0000000037247867, w: 1}
+  m_LocalRotation: {x: -0.000000059604645, y: -0.000000006706735, z: 0.000000004185522, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1636,7 +1676,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375738287}
-  m_LocalRotation: {x: 0.27536342, y: -1.04869045e-16, z: -3.1817734e-16, w: 0.96134025}
+  m_LocalRotation: {x: 0.27536342, y: 2.6371081e-15, z: 1.7811971e-16, w: 0.96134025}
   m_LocalPosition: {x: -4.9797325, y: 12.568, z: -30.193432}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2619,9 +2659,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5078007184037558536, guid: e30463f1f069c5a4c865dcefbaa18cc8, type: 3}
+      propertyPath: ignorLayer.m_Bits
+      value: 4096
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078007184037558536, guid: e30463f1f069c5a4c865dcefbaa18cc8, type: 3}
       propertyPath: movePositionTransform
       value: 
       objectReference: {fileID: 1305490405}
+    - target: {fileID: 5078007184037558539, guid: e30463f1f069c5a4c865dcefbaa18cc8, type: 3}
+      propertyPath: m_BaseOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5078007184037558539, guid: e30463f1f069c5a4c865dcefbaa18cc8, type: 3}
       propertyPath: m_Acceleration
       value: 15
