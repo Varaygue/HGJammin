@@ -8,7 +8,7 @@ public class HitBoxCollisionChecker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("HitBox"))
+        if (other.gameObject.CompareTag("Hitbox"))
         {
             Debug.Log("damage taken");
             damager = other.gameObject.GetComponent<IDamager>();

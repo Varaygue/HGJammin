@@ -19,7 +19,6 @@ public class AIBehavior : MonoBehaviour
     [SerializeField] float drainRate;
     [SerializeField] float recoveryRate;
 
-    bool isRecovering;
     bool isCharging;
 
     void Start()

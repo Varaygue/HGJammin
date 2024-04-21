@@ -14,13 +14,13 @@ public class AINav : MonoBehaviour
 
     [SerializeField] Vector3 rayPositionOffset;
 
-    public LayerMask ignorLayer;
+    public LayerMask ignoreLayer;
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         if(seesPlayer)
@@ -34,11 +34,11 @@ public class AINav : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Vector3 direction = other.transform.position - gameObject.transform.position - rayPositionOffset;
+            Vector3 direction = other.transform.position - gameObject.transform.position - rayPositionOffset + new Vector3(0,0, 1.12f);
             Ray ray = new Ray(gameObject.transform.position + rayPositionOffset, direction);
             RaycastHit hit;
             Debug.DrawRay(gameObject.transform.position + rayPositionOffset, direction, Color.green);
-            if(Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignorLayer))
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, ~ignoreLayer))
             {
                if(hit.collider.gameObject.CompareTag("Player") || hit.collider.gameObject.CompareTag("Light"))
                 {
