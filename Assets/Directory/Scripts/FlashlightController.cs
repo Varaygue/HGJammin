@@ -26,7 +26,6 @@ public class FlashlightController : MonoBehaviour
 
             // Rotate towards the hit point
             transform.rotation = Quaternion.LookRotation(targetDirection);
-
         }
     }
 }
