@@ -9,6 +9,7 @@ public class AIBehavior : MonoBehaviour
 {
     AINav aINav;
     NavMeshAgent navMeshAgent;
+    SpriteRenderer[] sr;
 
     [SerializeField] float chaseSpeed;
     [SerializeField] float patrolSpeed;
@@ -25,6 +26,7 @@ public class AIBehavior : MonoBehaviour
     {
         aINav = gameObject.GetComponent<AINav>();
         navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+        sr = gameObject.GetComponentsInChildren<SpriteRenderer>();
     }
 
     
@@ -51,6 +53,8 @@ public class AIBehavior : MonoBehaviour
         {
             RecoverStamina();
         }
+
+        FlipSprite();
     }
 
     void GiveChase()
@@ -93,5 +97,24 @@ public class AIBehavior : MonoBehaviour
             isCharging = true;
         }
         
+    }
+
+
+    void FlipSprite()
+    {
+        if (navMeshAgent.velocity.x > 0.1f)
+        {
+            foreach (SpriteRenderer spriteRenderer in sr)
+            {
+                spriteRenderer.flipX = false;
+            }
+        }
+        else if (navMeshAgent.velocity.x < -0.1f)
+        {
+            foreach (SpriteRenderer spriteRenderer in sr)
+            {
+                spriteRenderer.flipX = true;
+            }
+        }
     }
 }
