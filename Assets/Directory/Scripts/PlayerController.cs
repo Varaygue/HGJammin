@@ -30,6 +30,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Animator animator;
     private string currentAnimation = "";
+
+
+   
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -140,6 +144,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
 
 
 }

@@ -165,7 +165,7 @@ MonoBehaviour:
   moveDir: {x: 0, y: -1, z: 0}
   speed: 7
   gravityMultiplier: 7
-  sprintSpeed: 20
+  sprintSpeed: 14
   animator: {fileID: 1893701861}
 --- !u!143 &6602307616934780717
 CharacterController:
@@ -178,13 +178,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2.03
+  m_Height: 2.98
   m_Radius: 0.83
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0.43}
+  m_Center: {x: 0, y: 0, z: 1.12}
 --- !u!54 &6602307616934780714
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -242,8 +242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: de807dd54d75ff9409c0a7ca6750b7a3, type: 2}
-  drainAmount: 50
-  recoverAmount: 5
+  drainAmount: 25
+  recoverAmount: 15
 --- !u!114 &1543449581
 MonoBehaviour:
   m_ObjectHideFlags: 0

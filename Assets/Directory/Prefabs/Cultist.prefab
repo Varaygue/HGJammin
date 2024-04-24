@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 663601438040990146}
   - component: {fileID: 4954073451017703397}
   - component: {fileID: 761842809}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: HitBox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   rayPositionOffset: {x: 0, y: 3.5, z: 0}
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
 --- !u!195 &1315489233
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -338,8 +338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46fa5e395be857c46958834b0e819c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
-  patrolSpeed: 0
+  chaseSpeed: 3
+  patrolSpeed: 3
   chargeSpeed: 0
   stamina: 0
   drainRate: 0
@@ -352,10 +352,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3184952928895099463}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 13
+  m_Radius: 16.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5023145908925388208
 PrefabInstance:
@@ -432,6 +432,10 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Center.y
       value: -0.15058029
       objectReference: {fileID: 0}
+    - target: {fileID: 5783779467551640658, guid: a448bfc7f9a314443bc915a748349f06, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 10cd4888383193649968df54c199e3d8, type: 2}
     - target: {fileID: 7598669866617993459, guid: a448bfc7f9a314443bc915a748349f06, type: 3}
       propertyPath: m_Bounds.m_Center.x
       value: 0.000374794
