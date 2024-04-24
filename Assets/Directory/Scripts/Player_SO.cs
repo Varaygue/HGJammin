@@ -7,6 +7,7 @@ public class Player_SO : ScriptableObject
 {
     public float health;
     public int batteries;
+    public int keys;
     public bool isSprinting;
     public float stamina = 100;
     public bool canMove;
