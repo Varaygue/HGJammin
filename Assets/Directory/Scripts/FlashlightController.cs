@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class FlashlightController : MonoBehaviour
 {
-   
 
-    private Light spotlight;
+    [SerializeField] Player_SO player;
     [SerializeField] private LayerMask layerMask;
 
     CapsuleCollider cC;
@@ -15,9 +14,13 @@ public class FlashlightController : MonoBehaviour
     bool isFlashLightOn;
     public bool hasFlashLight;
 
+    [SerializeField] float maxCharge;
+    [SerializeField] float charge;
+    [SerializeField] float drainAmount;
+    [SerializeField] float batteryChargeAmount;
+
     private void Start()
     {
-        spotlight = GetComponent<Light>();
         cC = GetComponentInChildren<CapsuleCollider>();
         l = gameObject.GetComponent<Light>();
 
@@ -42,7 +45,13 @@ public class FlashlightController : MonoBehaviour
         {
             ToggleFlashLight();
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            UseBattery();
+        }
+
+        DrainCharge();
     }
 
     void ToggleFlashLight()
@@ -55,12 +64,38 @@ public class FlashlightController : MonoBehaviour
                 l.enabled = false;
                 isFlashLightOn = false;
             }
-            else
+            else if(!isFlashLightOn && charge > 0)
             {
                 cC.enabled = true;
                 l.enabled = true;
                 isFlashLightOn = true;
             }
         }
+    }
+
+    void DrainCharge()
+    {
+        if(isFlashLightOn)
+        {
+            charge -= drainAmount * Time.deltaTime;
+            if(charge <= 0)
+            {
+                cC.enabled = false;
+                l.enabled = false;
+                isFlashLightOn = false;
+            }
+        }
+
+
+    }
+
+    void UseBattery()
+    {
+        if(player.batteries > 0)
+        {
+            charge += batteryChargeAmount;
+            player.batteries -= 1;
+        }
+        
     }
 }
