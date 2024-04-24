@@ -44,8 +44,11 @@ public class PlayerController : MonoBehaviour
    
     void Update()
     {
-
-        ApplyMovement();
+        if(player.canMove)
+        {
+            ApplyMovement();
+        }
+        
         CheckAnimation();
         ApplyFacingDirection();
         
@@ -62,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckAnimation()
     {
-        if(move.action.ReadValue<Vector2>() != new Vector2(0,0))
+        if(move.action.ReadValue<Vector2>() != new Vector2(0,0) && player.canMove)
         {
             ChangeAnimation("Walk");
         }
