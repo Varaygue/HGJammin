@@ -9,10 +9,20 @@ public class FlashlightController : MonoBehaviour
     private Light spotlight;
     [SerializeField] private LayerMask layerMask;
 
+    CapsuleCollider cC;
+    Light l;
+
+    bool isFlashLightOn;
+    public bool hasFlashLight;
+
     private void Start()
     {
         spotlight = GetComponent<Light>();
+        cC = GetComponentInChildren<CapsuleCollider>();
+        l = gameObject.GetComponent<Light>();
 
+        l.enabled = false;
+        cC.enabled = false;
     }
 
     private void Update()
@@ -26,6 +36,31 @@ public class FlashlightController : MonoBehaviour
 
             // Rotate towards the hit point
             transform.rotation = Quaternion.LookRotation(targetDirection);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            ToggleFlashLight();
+        }
+        
+    }
+
+    void ToggleFlashLight()
+    {
+        if(hasFlashLight)
+        {
+            if(isFlashLightOn)
+            {
+                cC.enabled = false;
+                l.enabled = false;
+                isFlashLightOn = false;
+            }
+            else
+            {
+                cC.enabled = true;
+                l.enabled = true;
+                isFlashLightOn = true;
+            }
         }
     }
 }

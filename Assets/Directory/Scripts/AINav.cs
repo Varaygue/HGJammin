@@ -20,7 +20,11 @@ public class AINav : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-   
+    private void Start()
+    {
+        movePositionTransform = GameObject.Find("Player").transform;
+    }
+
     void Update()
     {
         if(seesPlayer)
